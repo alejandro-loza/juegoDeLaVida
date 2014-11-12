@@ -8,6 +8,10 @@ package com.celulas
  * To change this template use File | Settings | File Templates.
  */
 class Celulas {
+    def main(String[] args){
+        imprime()
+    }
+
     def imprime() {
       println  'Hola mundo'
     }

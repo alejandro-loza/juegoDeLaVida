@@ -27,9 +27,11 @@ task wrapper(type : Wrapper){
   gradleVersion = '2.1'
 }
 
-/*
-task run(){
-  Celulas celulas = new Celulas()
-    celulas.imprime()
+task runScript () {
+//    main = 'Celulas'
+//    classpath = sourceSets.main.runtimeClasspath
+
+    def pathToFolderOfScript = 'src/main/groovy/com/celulas'
+    def gse = new GroovyScriptEngine([pathToFolderOfScript] as String[])
+    gse.run('Celulas.groovy', new Binding())
 }
-*/
