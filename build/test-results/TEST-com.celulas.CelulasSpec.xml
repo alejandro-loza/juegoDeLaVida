@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.celulas.CelulasSpec" tests="1" failures="1" errors="0" timestamp="1970-01-01T00:00:00" hostname="pinky-System-Product-Name" time="1.415834215581E9">
+  <properties/>
+  <testcase name="must print hola mundo" classname="com.celulas.CelulasSpec" time="0.159">
+    <failure message="Condition not satisfied:&#10;&#10;response == &quot;Hola mundo&quot;&#10;|        |&#10;null     false&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
+
+response == &quot;Hola mundo&quot;
+|        |
+null     false
+
+	at com.celulas.CelulasSpec.must print hola mundo(CelulasSpec.groovy:21)
+</failure>
+  </testcase>
+  <system-out><![CDATA[Hola mundo
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
