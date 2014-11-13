@@ -15,4 +15,26 @@ class Celulas {
     def imprime() {
       println  'Hola mundo'
     }
+
+    def creaArchivo() {
+       def directory = "/file"
+       def  myFileName = "input.txt"
+       def  myFile = new File(directory + myFileName).createNewFile()
+
+
+
+                '.........*\n' +
+                '.*.*...*..\n' +
+                '..........\n' +
+                '..*.*....*\n' +
+                '.*..*...*.\n' +
+                '.........*\n' +
+                '..........\n' +
+                '.....*..*.\n' +
+                '.*....*...\n' +
+                '.....**...'
+
+
+
+    }
 }

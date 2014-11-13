@@ -19,7 +19,15 @@ class CelulasSpec extends Specification{
          def response = celulas.imprime()
         then:
          assert response == "Hola mundo"
+    }
 
+    void "must create a file"(){
+        setup:
+          Celulas celulas = new Celulas()
+        when:
+          def response = celulas.creaArchivo()
+        then:
+          assert response
 
     }
 }
