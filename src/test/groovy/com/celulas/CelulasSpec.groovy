@@ -1,5 +1,6 @@
 package com.celulas
 
+import org.junit.Ignore
 import spock.lang.Specification
 
 /**
@@ -11,45 +12,81 @@ import spock.lang.Specification
  */
 class CelulasSpec extends Specification{
 
+
+//    @Ignore
     void "must create a file"(){
         setup:
           Celulas celulas = new Celulas()
+        def myFileName = "input.txt"
+        def myFile = new File(myFileName)
         when:
-          def response = celulas.creaArchivo()
+          def response = celulas.creaArchivo(myFile)
         then:
           assert response instanceof File
 
     }
 
-    void "must find a  input file"() {
-        setup:
-          Celulas celulas = new Celulas()
-          File file = new File("input.txt")
-        when:
-         def response = celulas.findFile(file)
-        then:
-          assert response == true
-//        file.delete()
-    }
-
-    void "must dont find a  input file"() {
-        setup:
-        Celulas celulas = new Celulas()
-        File file = new File("another.txt")
-        when:
-        def response = celulas.findFile(file)
-        then:
-        assert response == false
-        file.delete()
-    }
-
+//    @Ignore
     void "must open a file"(){
         setup:
         Celulas celulas = new Celulas()
+        def myFileName = "input.txt"
+        def myFile = new File(myFileName)
+        myFile
         when:
-        def response = celulas.leeArchivo()
+        def response = celulas.leeArchivo(myFile)
         then:
         assert response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+
+    }
+//    @Ignore
+    void "must open a file and if it doesn exist create it"(){
+        setup:
+        Celulas celulas = new Celulas()
+        when:
+        def response = celulas.obtenArchivo()
+        then:
+        assert response
+    }
+    void "must read input and print it"(){
+        setup:
+        Celulas celulas = new Celulas()
+        when:
+        def response = celulas.inicio()
+        then:
+        assert response
+    }
+
+    void "must buffer it in a matrix"(){
+        setup:
+          List<String> lines = ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+          Celulas celulas = new Celulas()
+        when:
+          def response = celulas.holdInMatrix(lines)
+        then:
+          assert response
+    }
+
+    void "given a matrix must  find its partners"(){
+        setup:"given a string matrix"
+          String[][] matrix = ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+          Celulas celulas = new Celulas()
+        when:
+          def response = celulas.siguenteGeneracion(matrix)
+        then:
+          assert response
+    }
+
+    void "must search its parteners"(){
+        setup: "given 2 numbers"
+         def first = 1
+         def second = 1
+        Celulas celulas = new Celulas()
+        when:
+        def response = celulas.encuentraVecinos(first,second)
+        then:
+        assert response
+
 
     }
 

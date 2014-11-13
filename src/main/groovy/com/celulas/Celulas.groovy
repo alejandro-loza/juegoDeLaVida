@@ -9,22 +9,22 @@ package com.celulas
  */
 class Celulas {
     def main(String[] args){
-        imprime()
     }
 
-    def imprime() {
-      println  'Hola mundo'
-    }
 
-    def File obtenArchivo() {
+    def  obtenArchivo() {
         def myFileName = "input.txt"
         def myFile = new File(myFileName)
-        myFile
+        if(!myFile.exists()){
+           creaArchivo(myFile)
+        }  else {
+            myFile
+        }
+
     }
 
 
-    def creaArchivo() {
-      File myFile = obtenArchivo()
+    File creaArchivo(File myFile) {
       myFile << '.........*\n'
       myFile << '.*.*...*..\n'
       myFile << '..........\n'
@@ -39,17 +39,53 @@ class Celulas {
       myFile
     }
 
-
-    boolean findFile(File file) {
-         file
-        if (!file.createNewFile()) {
-            assert file.exists()
-            true
-        }
-        else  false
+    def leeArchivo(File file) {
+      file.readLines()
     }
 
-    def leeArchivo() {
-      obtenArchivo().readLines()
+    def inicio() {
+      File archivo = obtenArchivo()
+      def out =leeArchivo(archivo)
+      println "ESTADO INICIAL"
+      out.each {println it}     //todo imprimir salida con ciclos
+      println "SIGUIENTE ESTADO"
+      archivo.delete()
+    }
+
+    def holdInMatrix(List<String> strings) {
+        String[][] matrix = strings as  String [][]
+        matrix
+    }
+
+    def siguenteGeneracion(String[][] strings) {
+        String[][] nextMatrix
+         strings.eachWithIndex { row, int i ->
+              row.eachWithIndex { col, int j ->
+                 println row[j]
+              }
+        }
+
+
+     }
+
+    def encuentraVecinos(int x, int y , int lenght , int size) {
+         def NORTHWEST = [:]
+         def NORTH  =[:]
+         def NORTHEAST = [:]
+         def WEST =  [:]
+         def EAST =  [:]
+         def SOUTHWEST = [:]
+         def SOUTH  =  [:]
+         def SOUTHEAST = [:]
+
+        if(x == 0 ){
+          NORTH = NORTHWEST = NORTHEAST = null
+
+
+        }
+        if (y == 0){
+            NORTHWEST = WEST = SOUTHWEST = null
+        }
+
     }
 }
