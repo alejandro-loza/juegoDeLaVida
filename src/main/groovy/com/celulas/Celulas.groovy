@@ -16,25 +16,40 @@ class Celulas {
       println  'Hola mundo'
     }
 
+    def File obtenArchivo() {
+        def myFileName = "input.txt"
+        def myFile = new File(myFileName)
+        myFile
+    }
+
+
     def creaArchivo() {
-       def directory = "file"
-       def  myFileName = "input.txt"
-       def  myFile = new File(directory + myFileName).createNewFile()
+      File myFile = obtenArchivo()
+      myFile << '.........*\n'
+      myFile << '.*.*...*..\n'
+      myFile << '..........\n'
+      myFile <<'..*.*....*\n'
+      myFile <<'.*..*...*.\n'
+      myFile <<'.........*\n'
+      myFile << '..........\n'
+      myFile <<'.....*..*.\n'
+      myFile << '.*....*...\n'
+      myFile << '.....**...'
+
+      myFile
+    }
 
 
+    boolean findFile(File file) {
+         file
+        if (!file.createNewFile()) {
+            assert file.exists()
+            true
+        }
+        else  false
+    }
 
-                '.........*\n' +
-                '.*.*...*..\n' +
-                '..........\n' +
-                '..*.*....*\n' +
-                '.*..*...*.\n' +
-                '.........*\n' +
-                '..........\n' +
-                '.....*..*.\n' +
-                '.*....*...\n' +
-                '.....**...'
-
-
-
+    def leeArchivo() {
+      obtenArchivo().readLines()
     }
 }

@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.celulas.CelulasSpec" tests="2" skipped="0" failures="1" errors="0" timestamp="2014-11-13T06:56:29" hostname="pinky-lap" time="0.431">
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="com.celulas.CelulasSpec" tests="4" failures="1" errors="0" timestamp="2014-11-13T19:51:02" hostname="pinky-System-Product-Name" time="0.19">
   <properties/>
-  <testcase name="must print hola mundo" classname="com.celulas.CelulasSpec" time="0.372">
-    <failure message="Condition not satisfied:&#10;&#10;response == &quot;Hola mundo&quot;&#10;|        |&#10;null     false&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
+  <testcase name="must create a file" classname="com.celulas.CelulasSpec" time="0.09"/>
+  <testcase name="must find a  input file" classname="com.celulas.CelulasSpec" time="0.003"/>
+  <testcase name="must dont find a  input file" classname="com.celulas.CelulasSpec" time="0.002"/>
+  <testcase name="must open a file" classname="com.celulas.CelulasSpec" time="0.093">
+    <failure message="Condition not satisfied:&#10;&#10;response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']&#10;|        |&#10;|        false&#10;[.........*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**...]&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
 
-response == &quot;Hola mundo&quot;
+response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
 |        |
-null     false
+|        false
+[.........*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**...]
 
-	at com.celulas.CelulasSpec.must print hola mundo(CelulasSpec.groovy:21)
+	at com.celulas.CelulasSpec.must open a file(CelulasSpec.groovy:52)
 </failure>
   </testcase>
-  <testcase name="must create a file" classname="com.celulas.CelulasSpec" time="0.059"/>
-  <system-out><![CDATA[Hola mundo
-]]></system-out>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

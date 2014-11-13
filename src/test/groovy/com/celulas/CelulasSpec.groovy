@@ -5,21 +5,11 @@ import spock.lang.Specification
 /**
  * Created with IntelliJ IDEA.
  * User: pinky
- * Date: 11/12/14
- * Time: 5:01 PM
+ * Date: 11/13/14
+ * Time: 2:01 PM
  * To change this template use File | Settings | File Templates.
  */
 class CelulasSpec extends Specification{
-
-    void "must print hola mundo"() {
-        setup:
-        Celulas celulas = new Celulas()
-
-        when:
-         def response = celulas.imprime()
-        then:
-         assert response == "Hola mundo"
-    }
 
     void "must create a file"(){
         setup:
@@ -27,7 +17,41 @@ class CelulasSpec extends Specification{
         when:
           def response = celulas.creaArchivo()
         then:
-          assert response
+          assert response instanceof File
 
     }
+
+    void "must find a  input file"() {
+        setup:
+          Celulas celulas = new Celulas()
+          File file = new File("input.txt")
+        when:
+         def response = celulas.findFile(file)
+        then:
+          assert response == true
+//        file.delete()
+    }
+
+    void "must dont find a  input file"() {
+        setup:
+        Celulas celulas = new Celulas()
+        File file = new File("another.txt")
+        when:
+        def response = celulas.findFile(file)
+        then:
+        assert response == false
+        file.delete()
+    }
+
+    void "must open a file"(){
+        setup:
+        Celulas celulas = new Celulas()
+        when:
+        def response = celulas.leeArchivo()
+        then:
+        assert response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+
+    }
+
+
 }
