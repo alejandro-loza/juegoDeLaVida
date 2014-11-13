@@ -1,7 +1,7 @@
-<?xml version="1.1" encoding="UTF-8"?>
-<testsuite name="com.celulas.CelulasSpec" tests="1" failures="1" errors="0" timestamp="1970-01-01T00:00:00" hostname="pinky-System-Product-Name" time="1.415834215581E9">
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.celulas.CelulasSpec" tests="2" skipped="0" failures="1" errors="0" timestamp="2014-11-13T06:56:29" hostname="pinky-lap" time="0.431">
   <properties/>
-  <testcase name="must print hola mundo" classname="com.celulas.CelulasSpec" time="0.159">
+  <testcase name="must print hola mundo" classname="com.celulas.CelulasSpec" time="0.372">
     <failure message="Condition not satisfied:&#10;&#10;response == &quot;Hola mundo&quot;&#10;|        |&#10;null     false&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
 
 response == &quot;Hola mundo&quot;
@@ -11,6 +11,7 @@ null     false
 	at com.celulas.CelulasSpec.must print hola mundo(CelulasSpec.groovy:21)
 </failure>
   </testcase>
+  <testcase name="must create a file" classname="com.celulas.CelulasSpec" time="0.059"/>
   <system-out><![CDATA[Hola mundo
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
