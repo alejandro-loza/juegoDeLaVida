@@ -68,24 +68,17 @@ class Celulas {
 
      }
 
-    def encuentraVecinos(int x, int y , int lenght , int size) {
-         def NORTHWEST = [:]
-         def NORTH  =[:]
-         def NORTHEAST = [:]
-         def WEST =  [:]
-         def EAST =  [:]
-         def SOUTHWEST = [:]
-         def SOUTH  =  [:]
-         def SOUTHEAST = [:]
+    def encuentraVecinos(int row, int col , int length ) {
+        int rowStart  = Math.max( row - 1, 0   )
+        int rowFinish = Math.min( row + 1, length - 1 )
+        int colStart  = Math.max( col - 1, 0  )
+        int colFinish = Math.min( col + 1, length - 1 )
 
-        if(x == 0 ){
-          NORTH = NORTHWEST = NORTHEAST = null
+        for ( int curRow = rowStart; curRow <= rowFinish; curRow++ ) {
+            for ( int curCol = colStart; curCol <= colFinish; curCol++ ) {
 
 
+            }
         }
-        if (y == 0){
-            NORTHWEST = WEST = SOUTHWEST = null
-        }
-
     }
 }
