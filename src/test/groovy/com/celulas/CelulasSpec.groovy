@@ -79,14 +79,25 @@ class CelulasSpec extends Specification{
 
     void "must search its parteners"(){
         setup: "given 2 numbers"
-         def first = 0
-         def second = 0
-        Celulas celulas = new Celulas()
+         def first = 6
+         def second = 9
+         Celulas celulas = new Celulas()
         when:
+        println "busca vecinos"
         def response = celulas.encuentraVecinos(first,second,10)
         then:
         assert response
+    }
 
+    void "given a map with index must find  a '*' "(){
+        setup:
+          String[][] matrix = ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+          Celulas celulas = new Celulas()
+          def cordenadas = [[5, 8], [5, 9], [6, 8], [7, 8], [7, 9]]
+        when:
+          def response = celulas.buscaVivas(matrix,cordenadas)
+        then:
+          assert response
 
     }
 

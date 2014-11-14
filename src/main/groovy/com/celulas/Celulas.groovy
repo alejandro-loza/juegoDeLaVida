@@ -81,7 +81,11 @@ class Celulas {
               vecinos << [curRow,curCol]
             }
         }
+       println vecinos - [row,col]
         vecinos - [row,col]
     }
 
+    def buscaVivas(String[][] strings, List<Integer> integers) {
+
+    }
 }
