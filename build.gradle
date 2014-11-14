@@ -1,3 +1,5 @@
+import com.celulas.Celulas
+
 apply plugin:'application'
 apply plugin: 'groovy'
 apply plugin: 'idea'
@@ -26,4 +28,10 @@ task wrapper(type : Wrapper){
   gradleVersion = '2.1'
 }
 
-mainClassName = "com.celulas.Celulas"
+task runSimple(dependsOn: 'classes') {
+    doFirst() {
+        com.celulas.Celulas.main()
+    }
+}
+
+//mainClassName = "com.celulas.Celulas"

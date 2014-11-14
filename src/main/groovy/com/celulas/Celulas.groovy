@@ -9,6 +9,8 @@ package com.celulas
  */
 class Celulas {
     def main(String[] args){
+        println "INICIO"
+//      inicio()
     }
 
 
@@ -45,10 +47,16 @@ class Celulas {
 
     def inicio() {
       File archivo = obtenArchivo()
-      def out =leeArchivo(archivo)
-      println "ESTADO INICIAL"
-      out.each {println it}     //todo imprimir salida con ciclos
-      println "SIGUIENTE ESTADO"
+        List<String> input =leeArchivo(archivo)
+      input.each {println it}
+        10.times {
+           String [][]iterableMatrix = holdInMatrix(input)
+           def out = siguenteGeneracion(iterableMatrix)
+           println out
+           siguenteGeneracion(out)
+
+        }
+
       archivo.delete()
     }
 
@@ -57,15 +65,18 @@ class Celulas {
         matrix
     }
 
-    def siguenteGeneracion(String[][] strings) {
-        String[][] nextMatrix
-         strings.eachWithIndex { row, int i ->
-              row.eachWithIndex { col, int j ->
-                  encuentraVecinos(i,j,strings.length)
+    String[][] siguenteGeneracion(String[][] strings) {
+        String[][] newMatrix = new String [strings.length][strings.length]
+        strings.eachWithIndex { row, int i ->
+              row.eachWithIndex { celula, int j ->
+                 if(vive (buscaVivas(strings ,encuentraVecinos(i,j,strings.length)),status(celula))){
+                     newMatrix[i][j]= "*"
+                 } else  {
+                     newMatrix[i][j]= "."
+                 }
               }
         }
-
-
+        newMatrix
      }
 
     def encuentraVecinos(int row, int col , int length ) {
@@ -97,7 +108,6 @@ class Celulas {
     }
 
     def vive(Integer vivos, boolean estatus) {
-
         if(estatus && vivos <2){
             return false
         }
@@ -107,6 +117,12 @@ class Celulas {
         else if(!estatus && vivos == 3 ){
             return true
         }
-
     }
+
+    boolean status(String original) {
+        original =='*' ?: false
+    }
+
+
+
 }

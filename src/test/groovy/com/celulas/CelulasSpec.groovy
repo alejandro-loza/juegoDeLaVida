@@ -74,7 +74,7 @@ class CelulasSpec extends Specification{
         when:
           def response = celulas.siguenteGeneracion(matrix)
         then:
-          assert response
+          assert response instanceof String [][]
     }
 
     void "must search its parteners"(){
@@ -176,6 +176,18 @@ class CelulasSpec extends Specification{
         boolean response = celulas.vive(vecinosVivios,vivo)
         then:
         assert response
+    }
+
+    void "must set the status if recive . *"(){
+        setup:
+        String original = '*'
+        Celulas celulas = new Celulas()
+        boolean vivo = false
+        when:
+        boolean response = celulas.status(original)
+        then:
+        assert response
+
     }
 
 
