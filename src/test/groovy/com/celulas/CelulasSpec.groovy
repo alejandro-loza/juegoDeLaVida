@@ -79,11 +79,11 @@ class CelulasSpec extends Specification{
 
     void "must search its parteners"(){
         setup: "given 2 numbers"
-         def first = 1
-         def second = 1
+         def first = 0
+         def second = 0
         Celulas celulas = new Celulas()
         when:
-        def response = celulas.encuentraVecinos(first,second)
+        def response = celulas.encuentraVecinos(first,second,10)
         then:
         assert response
 

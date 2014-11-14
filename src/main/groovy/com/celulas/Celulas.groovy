@@ -61,7 +61,7 @@ class Celulas {
         String[][] nextMatrix
          strings.eachWithIndex { row, int i ->
               row.eachWithIndex { col, int j ->
-                 println row[j]
+                  encuentraVecinos(i,j,strings.length)
               }
         }
 
@@ -69,6 +69,8 @@ class Celulas {
      }
 
     def encuentraVecinos(int row, int col , int length ) {
+       List vecinos = []
+
         int rowStart  = Math.max( row - 1, 0   )
         int rowFinish = Math.min( row + 1, length - 1 )
         int colStart  = Math.max( col - 1, 0  )
@@ -76,9 +78,10 @@ class Celulas {
 
         for ( int curRow = rowStart; curRow <= rowFinish; curRow++ ) {
             for ( int curCol = colStart; curCol <= colFinish; curCol++ ) {
-
-
+              vecinos << [curRow,curCol]
             }
         }
+        vecinos - [row,col]
     }
+
 }
