@@ -9,32 +9,83 @@ package com.celulas
  */
 class Celulas {
     def main(String[] args){
-        imprime()
     }
 
-    def imprime() {
-      println  'Hola mundo'
+
+    def  obtenArchivo() {
+        def myFileName = "input.txt"
+        def myFile = new File(myFileName)
+        if(!myFile.exists()){
+           creaArchivo(myFile)
+        }  else {
+            myFile
+        }
+
     }
 
-    def creaArchivo() {
-       def directory = "/file"
-       def  myFileName = "input.txt"
-       def  myFile = new File(directory + myFileName).createNewFile()
+
+    File creaArchivo(File myFile) {
+      myFile << '.........*\n'
+      myFile << '.*.*...*..\n'
+      myFile << '..........\n'
+      myFile <<'..*.*....*\n'
+      myFile <<'.*..*...*.\n'
+      myFile <<'.........*\n'
+      myFile << '..........\n'
+      myFile <<'.....*..*.\n'
+      myFile << '.*....*...\n'
+      myFile << '.....**...'
+
+      myFile
+    }
+
+    def leeArchivo(File file) {
+      file.readLines()
+    }
+
+    def inicio() {
+      File archivo = obtenArchivo()
+      def out =leeArchivo(archivo)
+      println "ESTADO INICIAL"
+      out.each {println it}     //todo imprimir salida con ciclos
+      println "SIGUIENTE ESTADO"
+      archivo.delete()
+    }
+
+    def holdInMatrix(List<String> strings) {
+        String[][] matrix = strings as  String [][]
+        matrix
+    }
+
+    def siguenteGeneracion(String[][] strings) {
+        String[][] nextMatrix
+         strings.eachWithIndex { row, int i ->
+              row.eachWithIndex { col, int j ->
+                  encuentraVecinos(i,j,strings.length)
+              }
+        }
 
 
+     }
 
-                '.........*\n' +
-                '.*.*...*..\n' +
-                '..........\n' +
-                '..*.*....*\n' +
-                '.*..*...*.\n' +
-                '.........*\n' +
-                '..........\n' +
-                '.....*..*.\n' +
-                '.*....*...\n' +
-                '.....**...'
+    def encuentraVecinos(int row, int col , int length ) {
+       List vecinos = []
 
+        int rowStart  = Math.max( row - 1, 0   )
+        int rowFinish = Math.min( row + 1, length - 1 )
+        int colStart  = Math.max( col - 1, 0  )
+        int colFinish = Math.min( col + 1, length - 1 )
 
+        for ( int curRow = rowStart; curRow <= rowFinish; curRow++ ) {
+            for ( int curCol = colStart; curCol <= colFinish; curCol++ ) {
+              vecinos << [curRow,curCol]
+            }
+        }
+       println vecinos - [row,col]
+        vecinos - [row,col]
+    }
+
+    def buscaVivas(String[][] strings, List<Integer> integers) {
 
     }
 }
