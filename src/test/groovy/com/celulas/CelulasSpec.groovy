@@ -79,27 +79,109 @@ class CelulasSpec extends Specification{
 
     void "must search its parteners"(){
         setup: "given 2 numbers"
-         def first = 6
-         def second = 9
+         def first = 9
+         def second = 6
          Celulas celulas = new Celulas()
         when:
         println "busca vecinos"
         def response = celulas.encuentraVecinos(first,second,10)
         then:
-        assert response
+        assert response == [[8, 5], [8, 6], [8, 7], [9, 5], [9, 7]]
     }
 
     void "given a map with index must find  a '*' "(){
         setup:
           String[][] matrix = ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
           Celulas celulas = new Celulas()
-          def cordenadas = [[5, 8], [5, 9], [6, 8], [7, 8], [7, 9]]
+          List<List<Integer>> cordenadas =[[8, 5], [8, 6], [8, 7], [9, 5], [9, 7]]
         when:
           def response = celulas.buscaVivas(matrix,cordenadas)
         then:
-          assert response
-
+          assert response  == 2
     }
+
+    void "Any live cell with one live neighbours dies"(){
+        setup:
+         Integer vecinosVivios = 1
+         Celulas celulas = new Celulas()
+         boolean vivo =true
+        when:
+         def response = celulas.vive(vecinosVivios,vivo)
+        then:
+          assert !response
+    }
+
+    void "Any live cell with cero live neighbours dies"(){
+        setup:
+          Integer vecinosVivios = 0
+          Celulas celulas = new Celulas()
+        boolean vivo =true
+        when:
+          boolean response = celulas.vive(vecinosVivios,vivo)
+        then:
+         assert !response
+    }
+
+    void "Any live cell with two live neighbours lives on to the next generation"(){
+        setup:
+        Integer vecinosVivios = 2
+        Celulas celulas = new Celulas()
+        boolean vivo =true
+        when:
+        boolean response = celulas.vive(vecinosVivios,vivo)
+        then:
+        assert response
+    }
+
+    void "Any live cell with tree live neighbours lives on to the next generation"(){
+        setup:
+        Integer vecinosVivios = 3
+        Celulas celulas = new Celulas()
+        boolean vivo =true
+        when:
+        boolean response = celulas.vive(vecinosVivios,vivo)
+        then:
+        assert response
+    }
+
+    void "Any live cell with more 3 live neighbours lives on to the next generation"(){
+        setup:
+        Integer vecinosVivios = 4
+        Celulas celulas = new Celulas()
+        boolean vivo =true
+        when:
+        boolean response = celulas.vive(vecinosVivios,vivo)
+        then:
+        assert !response
+    }
+
+
+    void "Any live cell with more 5 live neighbours lives on to the next generation"(){
+        setup:
+        Integer vecinosVivios = 5
+        Celulas celulas = new Celulas()
+        boolean vivo =true
+        when:
+        boolean response = celulas.vive(vecinosVivios,vivo)
+        then:
+        assert !response
+    }
+
+    void "Any live cell with 3 live neighbours lives on to the next generation"(){
+        setup:
+        Integer vecinosVivios = 3
+        Celulas celulas = new Celulas()
+        boolean vivo = false
+        when:
+        boolean response = celulas.vive(vecinosVivios,vivo)
+        then:
+        assert response
+    }
+
+
+
+
+
 
 
 }

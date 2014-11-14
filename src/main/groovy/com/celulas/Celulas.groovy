@@ -78,14 +78,35 @@ class Celulas {
 
         for ( int curRow = rowStart; curRow <= rowFinish; curRow++ ) {
             for ( int curCol = colStart; curCol <= colFinish; curCol++ ) {
-              vecinos << [curRow,curCol]
+             if([curRow,curCol] != [row,col]){
+                 vecinos << [curRow,curCol]
+             }
             }
         }
-       println vecinos - [row,col]
-        vecinos - [row,col]
+        vecinos
     }
 
-    def buscaVivas(String[][] strings, List<Integer> integers) {
+    Integer buscaVivas(String[][] matriz, List<List<Integer>> vecinos) {
+       def vivas = 0
+       vecinos.each { x,y->
+           if(matriz[x][y] == "*"){
+             vivas++
+           }
+       }
+       vivas
+    }
+
+    def vive(Integer vivos, boolean estatus) {
+
+        if(estatus && vivos <2){
+            return false
+        }
+        else if(estatus && vivos in (2..3) ){
+          return true
+        }
+        else if(!estatus && vivos == 3 ){
+            return true
+        }
 
     }
 }
