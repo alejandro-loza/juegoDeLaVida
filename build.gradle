@@ -30,7 +30,7 @@ task wrapper(type : Wrapper){
 
 task runSimple(dependsOn: 'classes') {
     doFirst() {
-        com.celulas.Celulas.main()
+        Celulas.main()
     }
 }
 

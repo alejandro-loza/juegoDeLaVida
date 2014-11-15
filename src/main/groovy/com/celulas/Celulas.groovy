@@ -8,9 +8,8 @@ package com.celulas
  * To change this template use File | Settings | File Templates.
  */
 class Celulas {
-    def main(String[] args){
-        println "INICIO"
-//      inicio()
+    public void main(String[] args) {
+        inicio()
     }
 
 
@@ -54,7 +53,6 @@ class Celulas {
            def out = siguenteGeneracion(iterableMatrix)
            println out
            siguenteGeneracion(out)
-
         }
 
       archivo.delete()
