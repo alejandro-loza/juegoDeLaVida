@@ -1,11 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
 <title>Test results - Class com.celulas.CelulasSpec</title>
-<link href="css/base-style.css" rel="stylesheet" type="text/css"/>
-<link href="css/style.css" rel="stylesheet" type="text/css"/>
-<script src="js/report.js" type="text/javascript"></script>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
@@ -28,13 +29,19 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">2</div>
 <p>failures</p>
 </div>
 </td>
 <td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
 <div class="infoBox" id="duration">
-<div class="counter">0.582s</div>
+<div class="counter">0.593s</div>
 <p>duration</p>
 </div>
 </td>
@@ -43,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">87%</div>
 <p>successful</p>
 </div>
 </td>
@@ -54,13 +61,53 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="must open a file"></a>
+<h3 class="failures">must open a file</h3>
+<span class="code">
+<pre>Condition not satisfied:
+
+response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+|        |
+|        false
+[.........*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**...]
+
+	at com.celulas.CelulasSpec.must open a file(CelulasSpec.groovy:37)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="must read input and print it"></a>
+<h3 class="failures">must read input and print it</h3>
+<span class="code">
+<pre>java.lang.ArrayIndexOutOfBoundsException: 10
+	at com.celulas.Celulas.buscaVivas_closure4(Celulas.groovy:103)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at groovy.lang.Closure.call(Closure.java:439)
+	at com.celulas.Celulas.buscaVivas(Celulas.groovy:102)
+	at com.celulas.Celulas.siguenteGeneracion_closure3_closure6(Celulas.groovy:72)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at com.celulas.Celulas.siguenteGeneracion_closure3(Celulas.groovy:71)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at com.celulas.Celulas.siguenteGeneracion(Celulas.groovy:70)
+	at com.celulas.Celulas.inicio(Celulas.groovy:51)
+	at com.celulas.CelulasSpec.must read input and print it(CelulasSpec.groovy:52)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -82,12 +129,12 @@
 </tr>
 <tr>
 <td class="success">Any live cell with more 3 live neighbours lives on to the next generation</td>
-<td>0s</td>
+<td>0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Any live cell with more 5 live neighbours lives on to the next generation</td>
-<td>0.001s</td>
+<td>0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -97,7 +144,7 @@
 </tr>
 <tr>
 <td class="success">Any live cell with tree live neighbours lives on to the next generation</td>
-<td>0s</td>
+<td>0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -107,38 +154,38 @@
 </tr>
 <tr>
 <td class="success">given a map with index must find  a '*' </td>
-<td>0.001s</td>
+<td>0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">given a matrix must  find its partners</td>
-<td>0.006s</td>
+<td>0.071s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">must buffer it in a matrix</td>
-<td>0.002s</td>
+<td>0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">must create a file</td>
-<td>0.087s</td>
+<td>0.170s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">must open a file</td>
-<td>0.017s</td>
-<td class="success">passed</td>
+<td class="failures">must open a file</td>
+<td>0.136s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">must open a file and if it doesn exist create it</td>
-<td>0.002s</td>
+<td>0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">must read input and print it</td>
-<td>0.460s</td>
-<td class="success">passed</td>
+<td class="failures">must read input and print it</td>
+<td>0.199s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">must search its parteners</td>
@@ -152,7 +199,7 @@
 </tr>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
 <pre>.........*
@@ -164,16 +211,25 @@
 ..........
 .....*..*.
 .*....*...
+.....**............*
+.*.*...*..
+..........
+..*.*....*
+.*..*...*.
+.........*
+..........
+.....*..*.
+.*....*...
+.....**............*
+.*.*...*..
+..........
+..*.*....*
+.*..*...*.
+.........*
+..........
+.....*..*.
+.*....*...
 .....**...
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
 [[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
 busca vecinos
 </pre>
@@ -182,7 +238,7 @@ busca vecinos
 </div>
 <div id="footer">
 <p>Generated by 
-<a href="http://www.gradle.org">Gradle 1.9</a> at Nov 14, 2014 5:34:19 PM</p>
+<a href="http://www.gradle.org">Gradle 2.1</a> at 15/11/2014 09:24:24 PM</p>
 </div>
 </div>
 </body>

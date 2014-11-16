@@ -13,6 +13,7 @@ import spock.lang.Specification
 class CelulasSpec extends Specification{
 
 
+//    @Ignore
     void "must create a file"(){
         setup:
           Celulas celulas = new Celulas()
@@ -25,6 +26,7 @@ class CelulasSpec extends Specification{
 
     }
 
+//    @Ignore
     void "must open a file"(){
         setup:
         Celulas celulas = new Celulas()
@@ -37,6 +39,7 @@ class CelulasSpec extends Specification{
         assert response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
 
     }
+//    @Ignore
     void "must open a file and if it doesn exist create it"(){
         setup:
         Celulas celulas = new Celulas()
@@ -51,7 +54,7 @@ class CelulasSpec extends Specification{
         when:
         def response = celulas.inicio()
         then:
-        assert response
+        assert !response
     }
 
     void "must buffer it in a matrix"(){
@@ -186,5 +189,21 @@ class CelulasSpec extends Specification{
         assert response
 
     }
+
+    void "must joint a string list into a string"(){
+        setup:
+        String[][] matrix =  ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+        Celulas celulas = new Celulas()
+        when:
+          def response = celulas.convierteTexto(matrix)
+        then:
+        assert response instanceof String
+    }
+
+
+
+
+
+
 
 }

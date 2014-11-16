@@ -1,20 +1,44 @@
-<?xml version="1.1" encoding="UTF-8"?>
-<testsuite name="com.celulas.CelulasSpec" tests="16" failures="0" errors="0" timestamp="2014-11-14T23:34:19" hostname="pinky-System-Product-Name" time="0.59">
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.celulas.CelulasSpec" tests="16" skipped="0" failures="2" errors="0" timestamp="2014-11-16T03:24:24" hostname="pinks-HP-ProBook-4430s" time="0.599">
   <properties/>
-  <testcase name="must create a file" classname="com.celulas.CelulasSpec" time="0.087"/>
-  <testcase name="must open a file" classname="com.celulas.CelulasSpec" time="0.017"/>
-  <testcase name="must open a file and if it doesn exist create it" classname="com.celulas.CelulasSpec" time="0.002"/>
-  <testcase name="must read input and print it" classname="com.celulas.CelulasSpec" time="0.46"/>
-  <testcase name="must buffer it in a matrix" classname="com.celulas.CelulasSpec" time="0.002"/>
-  <testcase name="given a matrix must  find its partners" classname="com.celulas.CelulasSpec" time="0.006"/>
+  <testcase name="must create a file" classname="com.celulas.CelulasSpec" time="0.17"/>
+  <testcase name="must open a file" classname="com.celulas.CelulasSpec" time="0.136">
+    <failure message="Condition not satisfied:&#10;&#10;response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']&#10;|        |&#10;|        false&#10;[.........*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**...]&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
+
+response == ['.........*', '.*.*...*..', '..........', '..*.*....*', '.*..*...*.', '.........*','..........' , '.....*..*.', '.*....*...', '.....**...']
+|        |
+|        false
+[.........*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**............*, .*.*...*.., .........., ..*.*....*, .*..*...*., .........*, .........., .....*..*., .*....*..., .....**...]
+
+	at com.celulas.CelulasSpec.must open a file(CelulasSpec.groovy:37)
+</failure>
+  </testcase>
+  <testcase name="must open a file and if it doesn exist create it" classname="com.celulas.CelulasSpec" time="0.003"/>
+  <testcase name="must read input and print it" classname="com.celulas.CelulasSpec" time="0.199">
+    <failure message="java.lang.ArrayIndexOutOfBoundsException: 10" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 10
+	at com.celulas.Celulas.buscaVivas_closure4(Celulas.groovy:103)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at groovy.lang.Closure.call(Closure.java:439)
+	at com.celulas.Celulas.buscaVivas(Celulas.groovy:102)
+	at com.celulas.Celulas.siguenteGeneracion_closure3_closure6(Celulas.groovy:72)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at com.celulas.Celulas.siguenteGeneracion_closure3(Celulas.groovy:71)
+	at groovy.lang.Closure.call(Closure.java:423)
+	at com.celulas.Celulas.siguenteGeneracion(Celulas.groovy:70)
+	at com.celulas.Celulas.inicio(Celulas.groovy:51)
+	at com.celulas.CelulasSpec.must read input and print it(CelulasSpec.groovy:52)
+</failure>
+  </testcase>
+  <testcase name="must buffer it in a matrix" classname="com.celulas.CelulasSpec" time="0.003"/>
+  <testcase name="given a matrix must  find its partners" classname="com.celulas.CelulasSpec" time="0.071"/>
   <testcase name="must search its parteners" classname="com.celulas.CelulasSpec" time="0.003"/>
-  <testcase name="given a map with index must find  a '*' " classname="com.celulas.CelulasSpec" time="0.001"/>
+  <testcase name="given a map with index must find  a '*' " classname="com.celulas.CelulasSpec" time="0.003"/>
   <testcase name="Any live cell with one live neighbours dies" classname="com.celulas.CelulasSpec" time="0.001"/>
   <testcase name="Any live cell with cero live neighbours dies" classname="com.celulas.CelulasSpec" time="0.0"/>
   <testcase name="Any live cell with two live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.0"/>
-  <testcase name="Any live cell with tree live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.0"/>
-  <testcase name="Any live cell with more 3 live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.0"/>
-  <testcase name="Any live cell with more 5 live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.001"/>
+  <testcase name="Any live cell with tree live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.001"/>
+  <testcase name="Any live cell with more 3 live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.001"/>
+  <testcase name="Any live cell with more 5 live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.0"/>
   <testcase name="Any live cell with 3 live neighbours lives on to the next generation" classname="com.celulas.CelulasSpec" time="0.0"/>
   <testcase name="must set the status if recive . *" classname="com.celulas.CelulasSpec" time="0.002"/>
   <system-out><![CDATA[.........*
@@ -26,16 +50,25 @@
 ..........
 .....*..*.
 .*....*...
+.....**............*
+.*.*...*..
+..........
+..*.*....*
+.*..*...*.
+.........*
+..........
+.....*..*.
+.*....*...
+.....**............*
+.*.*...*..
+..........
+..*.*....*
+.*..*...*.
+.........*
+..........
+.....*..*.
+.*....*...
 .....**...
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
-[[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
 [[., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., *, *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., ., .], [., ., ., *, ., ., ., ., *, *], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., ., ., ., .], [., ., ., ., ., ., *, *, ., .], [., ., ., ., ., *, *, ., ., .]]
 busca vecinos
 ]]></system-out>
