@@ -8,12 +8,10 @@ package com.celulas
  * To change this template use File | Settings | File Templates.
  */
 class Celulas {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         inicio()
     }
-
-
-    def  obtenArchivo() {
+   static def  obtenArchivo() {
         def myFileName = "input.txt"
         def myFile = new File(myFileName)
         if(!myFile.exists()){
@@ -21,53 +19,54 @@ class Celulas {
         }  else {
             myFile
         }
+   }
 
-    }
-
-
-    File creaArchivo(File myFile) {
-      myFile << '.........*\n'
-      myFile << '.*.*...*..\n'
-      myFile << '..........\n'
-      myFile <<'..*.*....*\n'
-      myFile <<'.*..*...*.\n'
-      myFile <<'.........*\n'
-      myFile << '..........\n'
-      myFile <<'.....*..*.\n'
-      myFile << '.*....*...\n'
-      myFile << '.....**...'
+   static File creaArchivo(File myFile) {
+      myFile << '.........*\n' +
+      '.*.*...*..\n' +
+      '..........\n' +
+      '..*.*....*\n' +
+      '.*..*...*.\n' +
+      '.........*\n' +
+      '..........\n' +
+      '.....*..*.\n' +
+      '.*....*...\n' +
+      '.....**...'
 
       myFile
-    }
+   }
 
-    def leeArchivo(File file) {
+   static def leeArchivo(File file) {
       file.readLines()
     }
 
-    def inicio() {
+   static def inicio() {
       File archivo = obtenArchivo()
-        List<String> input =leeArchivo(archivo)
+      List<String> input =leeArchivo(archivo)
       input.each {println it}
-        10.times {
-           String [][]iterableMatrix = holdInMatrix(input)
-           def out = siguenteGeneracion(iterableMatrix)
-           println out
-           siguenteGeneracion(out)
+      String [][]iterableMatrix = holdInMatrix(input)
+      iterableMatrix = siguenteGeneracion(iterableMatrix)
+      def y=0
+      10.times{
+        println y++
+        iterableMatrix.each{
+          println  it.join()
         }
-
+        iterableMatrix = siguenteGeneracion(iterableMatrix)
+      }
       archivo.delete()
+       iterableMatrix
     }
 
-    def holdInMatrix(List<String> strings) {
-        String[][] matrix = strings as  String [][]
-        matrix
+   static def holdInMatrix(List<String> strings) {
+       strings as  String [][]
     }
 
-    String[][] siguenteGeneracion(String[][] strings) {
-        String[][] newMatrix = new String [strings.length][strings.length]
-        strings.eachWithIndex { row, int i ->
+    static String[][] siguenteGeneracion(String[][] matrizEntrada) {
+        String[][] newMatrix = new String [matrizEntrada.length][matrizEntrada.length]
+        matrizEntrada.eachWithIndex { row, int i ->
               row.eachWithIndex { celula, int j ->
-                 if(vive (buscaVivas(strings ,encuentraVecinos(i,j,strings.length)),status(celula))){
+                 if(vive (buscaVivas(matrizEntrada ,encuentraVecinos(i,j,matrizEntrada.length)),status(celula))){
                      newMatrix[i][j]= "*"
                  } else  {
                      newMatrix[i][j]= "."
@@ -77,7 +76,7 @@ class Celulas {
         newMatrix
      }
 
-    def encuentraVecinos(int row, int col , int length ) {
+   static def encuentraVecinos(int row, int col , int length ) {
        List vecinos = []
 
         int rowStart  = Math.max( row - 1, 0   )
@@ -95,7 +94,7 @@ class Celulas {
         vecinos
     }
 
-    Integer buscaVivas(String[][] matriz, List<List<Integer>> vecinos) {
+   static Integer buscaVivas(String[][] matriz, List<List<Integer>> vecinos) {
        def vivas = 0
        vecinos.each { x,y->
            if(matriz[x][y] == "*"){
@@ -105,22 +104,13 @@ class Celulas {
        vivas
     }
 
-    def vive(Integer vivos, boolean estatus) {
-        if(estatus && vivos <2){
-            return false
-        }
-        else if(estatus && vivos in (2..3) ){
-          return true
-        }
-        else if(!estatus && vivos == 3 ){
-            return true
+   static def vive(Integer vivos, boolean estatus) {
+        if(estatus && vivos in (2..3) ||!estatus && vivos == 3 ){
+          true
         }
     }
 
-    boolean status(String original) {
+   static boolean status(String original) {
         original =='*' ?: false
     }
-
-
-
 }
